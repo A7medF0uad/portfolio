@@ -1,19 +1,13 @@
-"""
-Render functions for each tab. Tabs (unlike st.Page/st.navigation) don't
-support separate URLs, so all page content lives here as plain functions
-and app.py just calls the right one inside each st.tabs() block.
-"""
-
 import base64
 from pathlib import Path
 
 import streamlit as st
 
 from core.content import (
-    NAME, HANDLE, LOCATION, TAGLINE, BIO, EMAIL, GITHUB, GITHUB_USER,
-    SKILLS, RESUME_SECTIONS, PROJECTS,
+    NAME, HANDLE, LOCATION, TAGLINE, BIO, EMAIL, GITHUB,
+    SKILLS, RESUME_SECTIONS, PROJECTS, LINKEDIN, GITHUB_USER
 )
-from core.theme import prompt_line, render_tags, card_open, card_close
+from core.theme import render_tags 
 
 ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets"
 AVATAR_PATH = ASSETS_DIR / "me.png"
@@ -25,7 +19,6 @@ def _get_base64(path: Path) -> str:
 
 
 def render_home() -> None:
-    prompt_line("~", "whoami")
 
     col_avatar, col_info = st.columns([1, 2])
 
@@ -47,11 +40,6 @@ def render_home() -> None:
                 """,
                 unsafe_allow_html=True,
             )
-        else:
-            st.markdown(
-                "<span class='muted'>*(assets/me.png not found)*</span>",
-                unsafe_allow_html=True,
-            )
 
     with col_info:
         st.markdown(f"### {HANDLE}")
@@ -64,7 +52,6 @@ def render_home() -> None:
 
 
 def render_resume() -> None:
-    prompt_line("~", "cat resume.md")
     st.markdown("## Resume")
 
     st.markdown("### Skills")
@@ -77,31 +64,16 @@ def render_resume() -> None:
     if RESUME_SECTIONS["education"]:
         for e in RESUME_SECTIONS["education"]:
             st.markdown(f"- {e}")
-    else:
-        st.markdown(
-            "<span class='muted'>*(add degree, institution, expected graduation — TODO)*</span>",
-            unsafe_allow_html=True,
-        )
 
     st.markdown("### Certifications")
     if RESUME_SECTIONS["certifications"]:
         for c in RESUME_SECTIONS["certifications"]:
             st.markdown(f"- {c}")
-    else:
-        st.markdown(
-            "<span class='muted'>*(add certifications here — TODO)*</span>",
-            unsafe_allow_html=True,
-        )
 
     st.markdown("### Experience")
     if RESUME_SECTIONS["experience"]:
         for x in RESUME_SECTIONS["experience"]:
             st.markdown(f"- {x}")
-    else:
-        st.markdown(
-            "<span class='muted'>*(internships / work experience if any — TODO)*</span>",
-            unsafe_allow_html=True,
-        )
 
 
 def _render_project_detail(p: dict) -> None:
@@ -125,21 +97,10 @@ def _render_project_detail(p: dict) -> None:
         links.append(f"[Live app]({p['deployed_url']})")
     if links:
         st.markdown(" &nbsp;|&nbsp; ".join(links))
-    else:
-        st.markdown(
-            "<span class='muted'>*(GitHub link — TODO)*</span>",
-            unsafe_allow_html=True,
-        )
 
 
 def render_projects() -> None:
-    prompt_line("~/projects", "ls -la")
     st.markdown("## Projects")
-    st.markdown(
-        "<span class='muted'>Three projects, three different stacks — a from-scratch "
-        "search algorithm, a statistical modeling dashboard, and a deployed ML app.</span>",
-        unsafe_allow_html=True,
-    )
     st.markdown("---")
 
     labels = [p["title"] for p in PROJECTS]
@@ -150,25 +111,14 @@ def render_projects() -> None:
 
 
 def render_contact() -> None:
-    prompt_line("~", "cat contact.md")
     st.markdown("## Contact")
 
     st.markdown(
         f"""
-```
-email    {EMAIL}
-github   {GITHUB_USER}
-handle   {HANDLE}
-```
+    email -- ({EMAIL})\n
+    github -- ({GITHUB})\n
+    linkedin -- ({LINKEDIN})
 """
     )
 
-    st.markdown(f"[{EMAIL}](mailto:{EMAIL})")
-    st.markdown(f"[{GITHUB}]({GITHUB})")
-
     st.markdown("---")
-    st.markdown(
-        "<span class='muted'>*(add LinkedIn profile link here if you want it "
-        "listed too — TODO)*</span>",
-        unsafe_allow_html=True,
-    )

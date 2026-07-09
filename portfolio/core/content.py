@@ -1,24 +1,15 @@
-"""
-All site copy lives here. Edit this file to update content without touching
-any page layout code.
-
-Anything marked "# TODO" is a placeholder — real facts only, nothing invented.
-"""
-
-NAME = "Ahmed Fouad"
+NAME = "Ahmed.Fouad.Hassan.Mousa"
 HANDLE = "A7.Fo2ad"
 LOCATION = "Alexandria, Egypt"
 EMAIL = "a7medfo2ad2004@gmail.com"
 GITHUB = "https://github.com/A7medF0uad"
+LINKEDIN = "https://www.linkedin.com/in/ahmed-fouad-97329334a/"
 GITHUB_USER = "A7medF0uad"
-TAGLINE = "Data Science student — Machine Learning and classical AI."
+TAGLINE = "Data Science student — Machine Learning"
 
 BIO = """
-I'm a Data Science student based in Alexandria, Egypt, working across machine
-learning and classical AI algorithms. I build things I can actually run
-end-to-end — from a from-scratch minimax chess engine to a deployed
-salary-prediction model.
-"""  # TODO: Ahmed — tighten/personalize this further if you want
+I'm a Data Science student based in Alexandria,
+"""
 
 SKILLS = {
     "Languages": ["Python", "R", "Java", "SQL"],
@@ -34,11 +25,11 @@ PROJECTS = [
         "one_liner": "A Tkinter chess GUI backed by a from-scratch Minimax engine with Alpha-Beta pruning.",
         "stack": ["Python", "Tkinter", "Minimax", "Alpha-Beta Pruning"],
         "page": "project_chess",
-        "github": None,  # TODO: add repo link
+        "github": "https://github.com/A7medF0uad/Chess_Openin_Advisor",
         "details": """
 Built a playable chess interface in Tkinter and paired it with a Minimax search
 engine for move evaluation. Alpha-Beta pruning cuts the search tree so the
-engine can look further ahead without the node count exploding — the same
+engine can look further ahead without the node count exploding the same
 core algorithm used in the classical AI coursework, applied to a real,
 interactive game instead of a toy example.
 """,
@@ -54,7 +45,7 @@ interactive game instead of a toy example.
         "one_liner": "An R + Shiny dashboard analyzing food delivery data, with a focus on RMSE-driven model evaluation.",
         "stack": ["R", "Shiny", "RMSE", "Predictive Modeling"],
         "page": "project_food_delivery",
-        "github": None,  # TODO: add repo link
+        "github": "https://github.com/A7medF0uad/Food_Delivery_Analysis",
         "details": """
 An interactive R Shiny dashboard exploring food delivery data — delivery times,
 order patterns, and the factors that predict them. The core of the project was
@@ -74,8 +65,8 @@ compare models rather than just reporting one number.
         "one_liner": "A RandomForest salary predictor, deployed as a live Streamlit app.",
         "stack": ["Python", "scikit-learn", "RandomForest", "Streamlit", "Streamlit Cloud"],
         "page": "project_ds_salaries",
-        "github": None,  # TODO: add repo link
-        "deployed_url": None,  # TODO: add Streamlit Cloud URL
+        "github": "https://github.com/A7medF0uad/ds-salaries-prediction",
+        "deployed_url": "https://ds-salaries-prediction.streamlit.app/",
         "details": """
 A full pipeline from raw data to deployed model: a RandomForest regressor
 trained on data science salary data, wrapped in a Streamlit app, and shipped
@@ -95,12 +86,8 @@ results.
 
 RESUME_SECTIONS = {
     "education": [
-        # TODO: Ahmed — add degree, institution, expected graduation
+        "Bachelor of Science in Data Science -- (2025 - 2029)"
     ],
-    "certifications": [
-        # TODO: Ahmed — add any certifications you want listed
-    ],
-    "experience": [
-        # TODO: Ahmed — add internships/work experience if any
-    ],
+    "certifications": ["..."],
+    "experience": ["..."]
 }

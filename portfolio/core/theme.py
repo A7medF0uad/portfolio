@@ -59,15 +59,6 @@ h1, h2, h3, h4, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
     color: var(--accent-green);
 }
 .prompt .path { color: var(--accent-purple); }
-.prompt .cursor {
-    display: inline-block;
-    width: 8px; height: 1em;
-    background: var(--accent-green);
-    animation: blink 1s step-end infinite;
-    vertical-align: text-bottom;
-    margin-left: 2px;
-}
-@keyframes blink { 50% { opacity: 0; } }
 
 /* tags/badges */
 .tag {

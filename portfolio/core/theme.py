@@ -1,5 +1,3 @@
-"""Shared theming utilities. Import inject_css() at the top of every page."""
-
 import streamlit as st
 
 CSS = """
@@ -97,26 +95,9 @@ def inject_css() -> None:
     st.markdown(CSS, unsafe_allow_html=True)
 
 
-def prompt_line(path: str, command: str = "") -> None:
-    """Render a fake terminal prompt line, e.g. ahmed@portfolio ~/projects $"""
-    st.markdown(
-        f'<div class="prompt">a7@portfolio <span class="path">{path}</span> $ '
-        f'{command}<span class="cursor"></span></div>',
-        unsafe_allow_html=True,
-    )
-
-
 def tag(text: str) -> str:
     return f'<span class="tag">{text}</span>'
 
 
 def render_tags(items: list[str]) -> None:
     st.markdown("".join(tag(i) for i in items), unsafe_allow_html=True)
-
-
-def card_open() -> None:
-    st.markdown('<div class="term-card">', unsafe_allow_html=True)
-
-
-def card_close() -> None:
-    st.markdown("</div>", unsafe_allow_html=True)
